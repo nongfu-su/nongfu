@@ -1,0 +1,26 @@
+import tkinter
+import os
+# 创建一个主窗口
+win = tkinter.Tk()
+# 设置标题
+win.title("Python-14")
+# 设置窗口大小和位置
+# 500x500 表示窗口大小
+# +200+50 表示窗口距离电脑屏幕的左边缘和上边缘的距离
+win.geometry("500x500+200+50")
+t = tkinter.Text(win, state='normal', height=30)
+t.pack()
+def func():
+    a = 'ping www.163.com'
+    b = os.popen(a, 'r', 1)
+    var = b.read()
+    t.delete(1.0,'end')
+    t.insert('end', var)
+button2 = tkinter.Button(win,
+                         text = "开始PING",
+                         width = 30,
+                         height = 2,
+                         command=func
+                         )
+button2.pack()
+win.mainloop()
